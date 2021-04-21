@@ -4,10 +4,18 @@ output:
   html_document:
     keep_md: true
 ---
-
+## Loading necessary libraries
+```{r libraries, include = FALSE}
+if(!require(tidyverse)){
+     install.packages("tidyverse")
+}
+library(tidyverse)
+```
 
 ## Loading and preprocessing the data
+```{r preprocessing, echo = FALSE}
 
+```
 
 
 ## What is mean total number of steps taken per day?
