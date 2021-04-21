@@ -14,19 +14,31 @@ library(tidyverse)
 
 ## Loading and preprocessing the data
 ```{r preprocessing, echo = FALSE}
-
+fileName <- unzip("activity.zip", list=TRUE)$Name
+data <- read.csv(unz("activity.zip", fileName[[1]]))
 ```
 
 
 ## What is mean total number of steps taken per day?
+```{r meansteps}
+stepstat <- filter(data, !is.na(steps)) %>%
+     group_by(date) %>%
+     summarize(Mean = mean(steps), 
+               Median = median(steps), 
+               Totalsteps = sum(steps))
 
+ggplot(stepstat, aes(x = Totalsteps)) +
+     geom_histogram()
+
+
+```
 
 
 ## What is the average daily activity pattern?
 
 
 
-## Imputing missing values
+## Inputing missing values
 
 
 
